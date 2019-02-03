@@ -86,24 +86,24 @@ public class Database {
         if (hasConnection()) {
             try {
                 Statement stmt = connection.createStatement();
-                stmt.executeUpdate(
-                "CREATE TABLE IF NOT EXISTS Product (" +
-                        "product_id smallint PRIMARY KEY," +
-                        "product_name varchar(256) NOT NULL," +
-                        "product_price smallint NOT NULL," +
-                        "product_image varchar(512))");
-                stmt.executeUpdate(
-                "CREATE TABLE IF NOT EXISTS Wumsh_User (" +
-                        "user_id smallint PRIMARY KEY," +
-                        "user_name varchar(256) NOT NULL UNIQUE," +
-                        "user_permission boolean NOT NULL," +
-                        "user_password varchar(256) NOT NULL)");
+//                stmt.executeUpdate(
+//                "CREATE TABLE IF NOT EXISTS Product (" +
+//                        "product_id smallint PRIMARY KEY," +
+//                        "product_name varchar(256) NOT NULL," +
+//                        "product_price smallint NOT NULL," +
+//                        "product_image varchar(512))");
+//                stmt.executeUpdate(
+//                "CREATE TABLE IF NOT EXISTS Wumsh_User (" +
+//                        "user_id smallint PRIMARY KEY," +
+//                        "user_name varchar(256) NOT NULL UNIQUE," +
+//                        "user_permission boolean NOT NULL," +
+//                        "user_password varchar(256) NOT NULL)");
 //                stmt.executeUpdate(
 //                "INSERT INTO Wumsh_User " +
 //                        "VALUES (0, 'admin', true, 'admin')");
-                stmt.executeUpdate(
-                "INSERT INTO Product " +
-                        "VALUES (0, 'First', 0, 'https://i.imgur.com/t7ImDtm.jpg')");
+//                stmt.executeUpdate(
+//                "INSERT INTO Product " +
+//                        "VALUES (0, 'First', 0, 'https://i.imgur.com/t7ImDtm.jpg')");
 //                stmt.executeUpdate(
 //                "ALTER TABLE Product RENAME COLUMN prodcut_name TO product_name");
 //                stmt.executeUpdate(
