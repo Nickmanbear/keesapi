@@ -7,12 +7,6 @@ public class Database {
     private static Database instance;
     private Connection connection;
 
-
-    /**
-     * Returns the instance of MariaDB so it can be accessed anywhere.
-     * @return MariaDB
-     * @author Sven van Duijn
-     */
     public static Database getInstance() {
         if (instance == null) {
             instance = new Database();
@@ -21,22 +15,10 @@ public class Database {
         return instance;
     }
 
-    /**
-     * Returns the connection
-     * @return Connection
-     * @author Sven van Duijn
-     */
     public Connection getConnection() {
         return connection;
     }
 
-
-
-    /**
-     * Returns if the instance of MariaDB has a connection with the database.
-     * @return boolean
-     * @author Sven van Duijn
-     */
     private boolean hasConnection() {
         try {
             return connection != null && !connection.isClosed();
@@ -46,14 +28,6 @@ public class Database {
         return false;
     }
 
-    /**
-     * Create a connection.
-     * @param host String
-     * @param dbName String
-     * @param user String
-     * @param password String
-     * @author Sven van Duijn
-     */
     public void connect(String host, String dbName, String user, String password) {
 //        String connectionString = String.format(
 //                "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC",
@@ -63,11 +37,6 @@ public class Database {
         connect(connectionString);
     }
 
-    /**
-     * Create a connection.
-     * @param connectionString String
-     * @author Sven van Duijn
-     */
     void connect(String connectionString) {
         if (hasConnection()) {
             try {
@@ -121,10 +90,6 @@ public class Database {
         }
     }
 
-    /**
-     * Close the connection.
-     * @author Sven van Duijn
-     */
     public void disconnect() {
         if (!hasConnection()) {
             try {
@@ -141,13 +106,6 @@ public class Database {
         }
     }
 
-    /**
-     * Returns a result using a parameter and a select String.
-     * @param key String
-     * @param selectString String
-     * @return ResultSet
-     * @author Sven van Duijn
-     */
     public ResultSet getResult(int key, String selectString) {
         ResultSet result = null;
         try {
@@ -161,12 +119,6 @@ public class Database {
         return result;
     }
 
-    /**
-     * Delete an object from the database.
-     * @param key String
-     * @param deleteString String
-     * @author Sven van Duijn.
-     */
     public void delete(int key, String deleteString) {
         try {
             PreparedStatement preparedStatement = instance.getConnection().prepareStatement(deleteString);
@@ -177,12 +129,7 @@ public class Database {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Closes the result.
-     * @param result ResultSet
-     * @author Sven van Duijn
-     */
+    
     public void closeResult(ResultSet result) {
         try {
             Statement statement = result.getStatement();
