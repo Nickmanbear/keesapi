@@ -1,0 +1,15 @@
+apiName: "Kees API"
+
+server:
+  rootPath: /*
+  applicationConnectors:
+    - type: http
+      port: ${PORT:14069}
+#    port: 8080
+#  adminContextPath: /admin
+#  adminConnectors:
+#    - type: http
+#      port: ${PORT:14070}
+#  http:
+#    port: 8080
+#    adminPort: 8081
