@@ -2,37 +2,20 @@ package nl.hsleiden.persistence;
 
 import nl.hsleiden.Database;
 import nl.hsleiden.model.Product;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Singleton
 public class ProductDAO {
 
-    private final List<Product> products;
     private Database database = Database.getInstance();
 
     public ProductDAO() {
-//        Product product1 = new Product();
-//        product1.setProductName("Cool lämp");
-//        product1.setProductPrice(70);
-//        product1.setId(0);
-//
-//        Product product2 = new Product();
-//        product2.setProductName("Fancy Chair");
-//        product2.setProductPrice(150);
-//        product2.setId(1);
-
-        products = new ArrayList<>();
-//        products.add(product1);
-//        products.add(product2);
     }
 
     public List<Product> getAll()

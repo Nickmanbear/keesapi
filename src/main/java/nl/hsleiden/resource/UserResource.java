@@ -15,12 +15,6 @@ import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Meer informatie over resources:
- *  https://jersey.java.net/documentation/latest/user-guide.html#jaxrs-resources
- * 
- * @author Peter van Vliet
- */
 @Singleton
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
