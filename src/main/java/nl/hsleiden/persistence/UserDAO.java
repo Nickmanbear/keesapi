@@ -111,6 +111,11 @@ public class UserDAO
                 "WHERE user_id = ?;";
 
         try {
+            System.out.println(user.getId());
+            System.out.println(user.getUsername());
+            System.out.println(user.getRoles()[0].equals("ADMIN"));
+            System.out.println(user.getPassword());
+            System.out.println(id);
             PreparedStatement preparedStatement = database.getConnection().prepareStatement(updateString);
             preparedStatement.setInt(1, user.getId());
             preparedStatement.setString(2, user.getUsername());
