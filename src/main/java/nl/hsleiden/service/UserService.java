@@ -47,6 +47,7 @@ public class UserService extends BaseService<User>
         if (!authenticator.hasRole("ADMIN"))
         {
             assertSelf(authenticator, oldUser);
+            user.setRoles(new String[]{"GUEST"});
         }
 
         user.setPassword(hasher.generateStrongPasswordHash(user.getPassword()));

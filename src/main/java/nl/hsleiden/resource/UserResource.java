@@ -30,7 +30,6 @@ public class UserResource
     
     @GET
     @JsonView(View.Public.class)
-    @RolesAllowed("ADMIN")
     public Collection<User> retrieveAll(@Auth User authenticator)
     {
         return service.getAll();
@@ -39,7 +38,6 @@ public class UserResource
     @GET
     @Path("/{id}")
     @JsonView(View.Public.class)
-    @RolesAllowed("ADMIN")
     public Collection<User> retrieve(@Auth User authenticator, @PathParam("id") int id)
     {
         return new ArrayList<User>() {{ add(service.get(id)); }};
@@ -47,8 +45,7 @@ public class UserResource
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @JsonView(View.Public.class)
-    @RolesAllowed("ADMIN")
+    @JsonView(View.Protected.class)
     public void create(@Auth User authenticator, @Valid User user)
     {
         service.add(user);
@@ -58,7 +55,7 @@ public class UserResource
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-    @RolesAllowed("ADMIN")
+    @RolesAllowed("GUEST")
     public void update(@Auth User authenticator, @PathParam("id") int id, @Valid User user)
     {
         service.update(authenticator, id, user);
